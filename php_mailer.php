@@ -22,4 +22,9 @@
     $mailer->addAddress("lucaema1@gmail.com");
     $mailer->Subject = $asunto;
     $mailer->msgHTML($cuerpo);
-    $mailer->send();
+
+    if (!$mailer->send()) {
+        echo 'Mailer Error: ' . $mail->ErrorInfo;
+    } else {
+        echo 'Message sent!';
+    }
